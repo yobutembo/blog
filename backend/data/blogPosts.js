@@ -1,92 +1,93 @@
 const blogPosts = [
   {
-    id: 1,
+    user: "user1", // Replace with actual user IDs
     title: "The Rise of JavaScript Frameworks in Modern Web Development",
     content:
       "JavaScript frameworks have revolutionized web development, offering developers powerful tools to build dynamic applications. In this article, we explore the evolution of frameworks and their impact on modern web development.",
-    author: "John Doe",
-    date: "2024-09-01",
+    category: "Web Development",
     tags: ["JavaScript", "Web Development", "Frameworks"],
     likes: 150,
     comments: [
       {
-        user: "Jane Smith",
+        user: "user2", // Replace with actual user IDs
         comment: "Great insights on the evolution of frameworks!",
       },
-      { user: "Tom Clark", comment: "This is exactly what I was looking for!" },
+      {
+        user: "user3", // Replace with actual user IDs
+        comment: "This is exactly what I was looking for!",
+      },
     ],
   },
   {
-    id: 2,
+    user: "user2", // Replace with actual user IDs
     title: "A Beginner's Guide to Tailwind CSS",
     content:
       "Tailwind CSS has taken the web design community by storm with its utility-first approach. Learn how to get started with Tailwind and make your development process faster and more efficient.",
-    author: "Jane Smith",
-    date: "2024-08-25",
+    category: "CSS",
     tags: ["CSS", "Tailwind", "Design"],
     likes: 200,
     comments: [
-      { user: "Alice Blue", comment: "Super helpful guide for beginners!" },
       {
-        user: "Chris Red",
+        user: "user4", // Replace with actual user IDs
+        comment: "Super helpful guide for beginners!",
+      },
+      {
+        user: "user5", // Replace with actual user IDs
         comment: "I switched to Tailwind thanks to this article!",
       },
     ],
   },
   {
-    id: 3,
+    user: "user3", // Replace with actual user IDs
     title: "Understanding REST APIs in Node.js",
     content:
       "REST APIs are a fundamental part of building modern web applications. In this post, we break down what REST APIs are, how they work, and how to create one using Node.js.",
-    author: "Tom Clark",
-    date: "2024-09-10",
+    category: "Backend",
     tags: ["Node.js", "API", "Backend"],
     likes: 180,
     comments: [
       {
-        user: "Sara Green",
+        user: "user6", // Replace with actual user IDs
         comment: "This article made APIs so much clearer for me!",
       },
-      { user: "Ben White", comment: "Great step-by-step explanation!" },
+      {
+        user: "user7", // Replace with actual user IDs
+        comment: "Great step-by-step explanation!",
+      },
     ],
   },
   {
-    id: 4,
+    user: "user4", // Replace with actual user IDs
     title: "React vs Vue: Which Framework Should You Choose?",
     content:
       "React and Vue are two of the most popular JavaScript frameworks today. In this article, we compare their features, strengths, and weaknesses to help you decide which one is best for your project.",
-    author: "Alice Blue",
-    date: "2024-09-05",
+    category: "JavaScript Frameworks",
     tags: ["React", "Vue", "JavaScript"],
     likes: 220,
     comments: [
       {
-        user: "John Doe",
+        user: "user1", // Replace with actual user IDs
         comment: "This comparison really helped me choose Vue!",
       },
-      { user: "Emily Purple", comment: "React has always been my favorite!" },
+      {
+        user: "user8", // Replace with actual user IDs
+        comment: "React has always been my favorite!",
+      },
     ],
   },
   {
-    id: 5,
+    user: "user5", // Replace with actual user IDs
     title: "Building Full-Stack Apps with the MERN Stack",
     content:
       "The MERN stack (MongoDB, Express, React, Node.js) offers a powerful way to build full-stack applications. In this guide, we take a deep dive into each component and how they work together.",
-    author: "Chris Red",
-    date: "2024-08-30",
+    category: "Full-Stack Development",
     tags: ["MERN", "Full-Stack", "Web Development"],
     likes: 250,
     comments: [
       {
-        user: "Tom Clark",
+        user: "user3", // Replace with actual user IDs
         comment: "MERN stack is a game-changer for full-stack devs!",
-      },
-      {
-        user: "Sara Green",
-        comment: "This guide is a great resource for beginners!",
       },
     ],
   },
 ];
-
-export default blogPosts;
