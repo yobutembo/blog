@@ -6,12 +6,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node backend/server.js"
+    "server": "nodemon backend/server.js",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d"
   },
   "author": "Yobu Tembo",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mongoose": "^8.6.3"
