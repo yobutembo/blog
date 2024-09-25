@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 import BlogPost from "./models/blogPostModel.js";
 import User from "./models/userModel.js";
 import asyncHandler from "./middleWare/asyncHandler.js";
+import { notFound, errorHandler } from "./middleWare/errorMiddleware.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -30,6 +31,10 @@ app.get(
     res.json(blog);
   })
 );
+
+//Error Middleware
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
