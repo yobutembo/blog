@@ -15,7 +15,7 @@ router.get(
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {
-    const blog = BlogPost.findById(req.params.id);
+    const blog = await BlogPost.findById(req.params.id);
     res.json(blog);
   })
 );
