@@ -1,23 +1,10 @@
 import express from "express";
-import asyncHandler from "../middleWare/asyncHandler.js";
-import BlogPost from "../models/blogPostModel.js";
+import { getBlogs, getBlogById } from "../controllers/blogPostControllers.js";
 
 const router = express.Router();
 
-router.get(
-  "/",
-  asyncHandler(async (req, res) => {
-    const blogs = await BlogPost.find({});
-    res.json(blogs);
-  })
-);
+router.route("/").get(getBlogs);
 
-router.get(
-  "/:id",
-  asyncHandler(async (req, res) => {
-    const blog = await BlogPost.findById(req.params.id);
-    res.json(blog);
-  })
-);
+router.route("/:id").get(getBlogById);
 
 export default router;
