@@ -2,9 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import blogPostRoutes from "./routes/blogPostRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleWare/errorMiddleware.js";
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 4000;
 
 dotenv.config();
@@ -15,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/blogs", blogPostRoutes);
+app.use("/api/users", userRoutes);
 
 //Error Middleware
 app.use(notFound);
