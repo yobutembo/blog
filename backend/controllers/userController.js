@@ -53,6 +53,26 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
+
+const getUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User profile not found");
+  }
+});
+
 // @desc    Auth user & get token
 // @route   POST /api/users/logout
 // @access  Public
@@ -65,7 +85,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 });
 
-//Admin-only routes
+//ADMIN-ONLY ROUTES
 
 // @desc  Get Users
 // @route   GET /api/users
@@ -75,4 +95,4 @@ const getUsers = asyncHandler(async (req, res) => {
   res.send(users);
 });
 
-export { authUser, registerUser, getUsers, logoutUser };
+export { authUser, registerUser, getUserProfile, getUsers, logoutUser };
