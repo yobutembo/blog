@@ -1,6 +1,6 @@
 import User from "../models/userModel.js";
 import asyncHandler from "../middleWare/asyncHandler.js";
-import jwt from "jsonwebtoken";
+import generateToken from "../utils/generateToken.js";
 
 //Here we write all the functions for our user routes
 
@@ -13,20 +13,7 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    //Generate JWT token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
-    });
-
-    //Set JWT as HTTP-Only  Cookie
-
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
-
+    generateToken(res, user._id);
     res.json({
       _id: user._id,
       name: user.name,
