@@ -25,6 +25,18 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Auth user & get token
+// @route   POST /api/users/logout
+// @access  Public
+const logoutUser = asyncHandler(async (req, res) => {
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
+});
+
 //Admin-only routes
 
 // @desc  Get Users
@@ -35,4 +47,4 @@ const getUsers = asyncHandler(async (req, res) => {
   res.send(users);
 });
 
-export { authUser, getUsers };
+export { authUser, getUsers, logoutUser };
