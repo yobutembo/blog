@@ -26,9 +26,21 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+//Password matcher method
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+
+//Pssword hashing before saving to the database
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    //Generate the salt
+    const salt = await bcrypt.genSalt(10);
+    //Hash the password
+    this.password = await bcrypt.hash(this.password, salt);
+  }
+  next();
+});
 const User = mongoose.model("User", userSchema);
 
 export default User;
