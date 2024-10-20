@@ -29,6 +29,8 @@ const Header = () => {
               size={22}
             />
           </div>
+        </div>
+        <div className="flex items-center justify-between space-x-4 md:space-x-8">
           {/* Search Icon for Mobile Screens */}
           <div className="md:hidden">
             <button onClick={toggleSearch} className="p-2">
@@ -45,8 +47,6 @@ const Header = () => {
               </>
             )}
           </div>
-        </div>
-        <div className="flex items-center justify-between space-x-4 md:space-x-8">
           <div className="flex items-center space-x-2 cursor-pointer">
             <TfiWrite className="text-gray-600" />
             <p className="text-sm text-serif text-gray-600">Write</p>
